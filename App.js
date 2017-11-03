@@ -1,8 +1,9 @@
 import React from 'react';
 import { Constants, LinearGradient } from 'expo';
-import { TouchableOpacity, Text, View, StyleSheet, StatusBar } from 'react-native';
+import { TouchableOpacity, Text, View, StyleSheet } from 'react-native';
 
-import CalcButton from './src/CalcButton';
+import CalcButton from './src/components/CalcButton';
+import ResultDisplay from './src/components/ResultDisplay';
   
 const initState = {
   firstNum: 0,
@@ -20,7 +21,7 @@ class App extends React.Component {
     this.setState(initState)
   }
 
-  resetAllExceptResult = () => {
+  calculatedComplete = () => {
     this.setState({
       firstNum: 0,
       secondNum: 0,
@@ -112,26 +113,22 @@ class App extends React.Component {
       }
     }
 
-    this.resetAllExceptResult()
+    this.calculatedComplete()
 
   }
 
   render() {
     const { result } = this.state;
     return (
-      <LinearGradient
-        colors={['black', 'gray']}
-        style={styles.mainContainer}
-      >
-
-        <View style={styles.resultContainer}>
+      <LinearGradient colors={['black', 'gray']} style={styles.linearGradientContainer}>
+        <View style={styles.mainContainer}>
           {/* RESULT */}
-          <View style={{paddingRight: 20, paddingBottom: 20, alignItems: 'flex-end'}}>
-            <Text style={{backgroundColor: 'black', fontSize: 42, color: 'white'}}>{result}</Text>
+          <View style={styles.resultContainer}>
+            <ResultDisplay result={result} />
           </View>
           
           {/* BUTTONS */}
-          <View style={styles.golden}>
+          <View style={styles.buttonsContainer}>
               <View style={styles.row}>
                 <CalcButton handlePress={this.reset} background={'gray'} value={'AC'}/>
                 <CalcButton handlePress={this.toggleNegativePress} background={'gray'} value={'+/-'}/>
@@ -177,12 +174,19 @@ class App extends React.Component {
 }
 
 const styles = StyleSheet.create({
-  golden: {
+  buttonsContainer: {
+    flex: 8,
+    justifyContent: 'center',
     // borderColor: 'goldenrod',
     // borderWidth: 2,
     // height: height,
     // flexDirection: 'column',
-    // justifyContent: 'space-around'
+  },
+  resultContainer: {
+    flex: 2,
+    paddingRight: 20,
+    justifyContent: 'center',
+    alignItems: 'flex-end'
   },
   row: {
     flexDirection: 'row',
@@ -198,10 +202,10 @@ const styles = StyleSheet.create({
     borderRadius: 50,
     margin: 5,
   },
-  resultContainer: {
+  mainContainer: {
     flex: 1,
   },
-  mainContainer: {
+  linearGradientContainer: {
     flex: 1,
     paddingTop: 30,
     // borderColor: 'red',

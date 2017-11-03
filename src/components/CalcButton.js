@@ -27,15 +27,6 @@ const styles = StyleSheet.create({
     fontSize: 28,
     color: 'white',
   },
-  grayCircle: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: 'gray',
-    width: 50,
-    height: 50,
-    borderRadius: 50,
-    margin: 5,
-  },
   orangeCircle: {
     alignItems: 'center',
     justifyContent: 'center',
