@@ -13,8 +13,8 @@ class ResultDisplay extends React.Component {
 
 const s = StyleSheet.create({
   text: {
-    backgroundColor: 'black', 
-    fontSize: 42,
+    backgroundColor: 'transparent',
+    fontSize: 50,
     color: 'white'
   }
 })

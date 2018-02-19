@@ -163,11 +163,8 @@ class App extends React.Component {
                 <CalcButton handlePress={this.dotPress} background={'gray'} value={'.'}/>
                 <CalcButton handlePress={this.equalPress} background={'orange'} value={'='}/>
               </View>
-          
           </View>
-          
         </View>
-
       </LinearGradient>
     );
   }
@@ -177,6 +174,8 @@ const styles = StyleSheet.create({
   buttonsContainer: {
     flex: 8,
     justifyContent: 'center',
+    paddingLeft: 10,
+    paddingRight: 10,
     // borderColor: 'goldenrod',
     // borderWidth: 2,
     // height: height,
@@ -191,16 +190,7 @@ const styles = StyleSheet.create({
   row: {
     flexDirection: 'row',
     justifyContent: 'space-around',
-    paddingVertical: 5
-  },
-  grayCircle: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: 'gray',
-    width: 50,
-    height: 50,
-    borderRadius: 50,
-    margin: 5,
+    paddingVertical: 1
   },
   mainContainer: {
     flex: 1,
